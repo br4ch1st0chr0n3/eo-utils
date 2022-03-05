@@ -65,13 +65,14 @@ data Term
 type MapIdTerm = InsOrdHashMap Id Term
 
 
+
 toTerm :: Node -> State (Int, Term, MapIdTerm) ()
 toTerm node = do
   (id, term, mp) <- get
   let Node token l p1 p1 = node
-  let term =
+  let t =
         case term of
-          P.pProgram ->
+          P.Program ->
             case l of
               [_,_,os] ->
                 
