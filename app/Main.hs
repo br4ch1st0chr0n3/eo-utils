@@ -8,7 +8,7 @@
 module Main where
 
 import ParseEO as P (pProgram)
-import ParseEOAlt as A (tProgram, printTree)
+import ParseEOAlt as A (tProgram)
 import Text.Megaparsec (parseTest, parseMaybe)
 import SimplifyTree(simplifyCST, enumerateNodes)
 import Data.Text as DT (pack, replicate, Text(..))
