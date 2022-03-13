@@ -154,11 +154,33 @@ data Position = Position
     column :: Int
   } {- deriving (Data) -}
 type I a b = Node a b
+type K a b = b -> I a b
+
 data Segment = Segment {start::Position, end::Position} {- deriving (Data) -}
 data Node a b = Node {pos::Segment, node::a b, load::b} {- deriving (Data) -}
 
--- data PLicense a = PLicense {cs::[K TComment a]} {- deriving (Data) -}
--- data PComment a = PComment {c::Text} {- deriving (Data) -}
+data PLicense a = PLicense {cs::[K TComment a]} {- deriving (Data) -}
+data PComment a = PComment {c::Text} {- deriving (Data) -}
+
+-- instance Functor (K TComment) where
+  -- fmap f g = _
+--   fmap f g = \x -
+-- instance Functor ((->) b) where
+--   fmap f g = _
+-- instance Functor PComment where
+--   fmap f PComment{..} = PComment {c = c}
+
+-- instance Functor (Node PComment) where
+--   fmap f n@Node{..} = n {node = f <$> node, load = f load}
+
+-- instance Functor PLicense where
+--   fmap f PLicense {..} = _
+--   fmap f l = \x -> 
+-- instance Functor (K PComment) where
+--   fmap f x = n
+--     where
+--       n = \t -> x t
+
 
 -- instance Functor (K PLicense) where
 --   fmap f x = 
@@ -362,7 +384,6 @@ dec t p = do
 
 -- ***************************************************
 
-type K a b = b -> I a b
 
 data Options2 a b = Opt2A a | Opt2B b {- deriving (Data) -}
 data Options3 a b c = Opt3A a | Opt3B b | Opt3C c {- deriving (Data) -}
