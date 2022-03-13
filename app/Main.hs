@@ -19,11 +19,11 @@ main = do
   let file = "./grammars/full-syntax.eo"
   -- let file = "./grammars/code.eo"
   code <- pack <$> readFile file
-  let tr1 = parseMaybe tProgram code
+  -- let tr1 = parseMaybe tProgram code
   putStr "\n\n"
-  case tr1 of
-    Just t -> putStr $ printTree t
-    _ -> print "ok"
+  -- case tr1 of
+  --   Just t -> putStr $ printTree t
+  --   _ -> print "ok"
   -- let tr = parseMaybe pProgram code
   -- -- let l = printf "\n%s\n%s\n%s\n" ((DT.replicate 10 "*")::Text) ("\nRESULT\n") ((DT.replicate 10 "*")::Text)
   -- let l = putStrLn "*****************" *> putStrLn "RESULT" *> putStrLn "*********************\n"
